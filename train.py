@@ -60,13 +60,10 @@ epochs = parser.epochs
 
 
 train_loader, validate_loader, test_loader, train_data = functions_train.load_data(data_dir)
-# def load_data(data_dir = 'flowers'):
 
 model, criterion, optimizer = functions_train.build_model(arch, middle_features, lr, use)
-# def build_model(arch = 'vgg16', middle_features = 1024, learning_rate = 0.01, device = 'gpu'):
 
 functions_train.train_model(model, criterion, optimizer, validate_loader, train_loader, use, epochs)
-# def train_model(model, criterion, optimizer, validate_loader, train_loader, use = 'gpu', epochs = 10):
 
 functions_train.save_checkpoint(model, optimizer, train_data, arch, path, middle_features, lr, epochs)
 # def save_checkpoint(model, optimizer, train_data, arch = 'vgg16', path = 'checkpoint.pth', input_features = 25088, middle_features = 1024, output_number = 102, lr = 0.01, epochs = 10, batch_size = 64):
