@@ -51,18 +51,16 @@ def load_data(data_dir = './flowers'):
     means = [0.485, 0.456, 0.406]
     stds = [0.229, 0.224, 0.225]
     
-    # random scaling, cropping, and flipping, resized to 224x224 pixels
     train_transforms = transforms.Compose([transforms.RandomResizedCrop(cropped_size),
                                            transforms.RandomHorizontalFlip(),
                                            transforms.ToTensor(),
                                            transforms.Normalize(means, stds)])
     
-    # resize then crop the images to the appropriate size
+
     validate_transforms = transforms.Compose([transforms.RandomResizedCrop(cropped_size),
                                               transforms.ToTensor(),
                                               transforms.Normalize(means, stds)])
     
-    # resize then crop the images to the appropriate size
     test_transforms = transforms.Compose([transforms.Resize(resized_size), # Why 255 pixels? 
                                           transforms.CenterCrop(cropped_size),
                                           transforms.ToTensor(),
